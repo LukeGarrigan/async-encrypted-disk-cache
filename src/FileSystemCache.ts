@@ -17,7 +17,7 @@ export class FileSystemCache implements MyCache {
     constructor(folderName: string, secretKey: string) {
         this.cryptr = new Cryptr(secretKey);
         this.folderName = folderName;
-        this.directoryPath = path.normalize(os.tmpdir() + "\\" + this.folderName);
+        this.directoryPath = path.normalize(os.tmpdir() + "/" + this.folderName);
 
         if (!fs.existsSync(this.directoryPath)) {
             fs.mkdirSync(this.directoryPath);
@@ -27,7 +27,7 @@ export class FileSystemCache implements MyCache {
     set(id: string, value: string): Promise<boolean> {
         const encryptedValue = this.encrypt(value);
         return new Promise<boolean>((resolve, reject) => {
-            return fs.writeFile(path.normalize(this.directoryPath + "\\") + id, encryptedValue, (err) => {
+            return fs.writeFile(path.normalize(this.directoryPath + "/") + id, encryptedValue, (err) => {
                 if (err) {
                     reject(false);
                 } else {
@@ -40,7 +40,7 @@ export class FileSystemCache implements MyCache {
 
     get(id: string): Promise<string> {
         return new Promise<string>((resolve, reject) => {
-            return fs.readFile(path.normalize(this.directoryPath + "\\") + id, (err, data) => {
+            return fs.readFile(path.normalize(this.directoryPath + "/") + id, (err, data) => {
 
                 if (err) {
                     reject(err);
@@ -53,7 +53,7 @@ export class FileSystemCache implements MyCache {
 
     remove(id: string): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
-            let fileToRemove = `${this.directoryPath}\\${id}`;
+            let fileToRemove = `${this.directoryPath}/${id}`;
             fileToRemove = path.normalize(fileToRemove);
             fs.unlink(fileToRemove, err => {
                 err ? reject(false) : resolve(true);
@@ -65,8 +65,10 @@ export class FileSystemCache implements MyCache {
         return new Promise<boolean>((resolve, reject) => {
 
             fs.readdir(this.directoryPath, (err, files) => {
-                if (err) reject(false);
-                let removeFilePromises : Promise<boolean>[] = [];
+                if (err) {
+                    reject(false);
+                }
+                const removeFilePromises : Array<Promise<boolean>> = [];
 
                 for (const file of files) {
                     removeFilePromises.push(this.remove(file));
@@ -76,7 +78,7 @@ export class FileSystemCache implements MyCache {
                     resolve(true);
                 }).catch(() => {
                     reject(false);
-                })
+                });
             });
 
         });
