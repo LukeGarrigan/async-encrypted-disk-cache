@@ -28,4 +28,24 @@ describe('removing from the cache', function () {
         });
     });
 });
+describe('clearing the entire cache directory', function () {
+    test('set cache then remove directory', function (done) {
+        return myCache.set("test", "This is the value").then(function (hasSet) {
+            return myCache.clear();
+        }).then(function (hasBeenRemoved) {
+            expect(hasBeenRemoved).toBe(true);
+            done();
+        });
+    });
+    test('setting multiple cache items then clearing', function (done) {
+        return myCache.set("test", "This is the value").then(function (hasSet) {
+            return myCache.set("second", "this is the second value");
+        }).then(function (hasSet) {
+            return myCache.clear();
+        }).then(function (hasCleared) {
+            expect(hasCleared).toBe(true);
+            done();
+        });
+    });
+});
 //# sourceMappingURL=testFileSystemCache.js.map

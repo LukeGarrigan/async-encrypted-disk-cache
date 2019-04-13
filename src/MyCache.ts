@@ -7,4 +7,6 @@ export interface MyCache {
     set(id: string, value: string): Promise<boolean>;
 
     remove(id: string) : Promise<boolean>;
+
+    clear() : Promise<boolean>;
 }

@@ -32,3 +32,25 @@ describe('removing from the cache', () => {
         });
     });
 });
+
+describe('clearing the entire cache directory', () => {
+    test('set cache then remove directory', (done) => {
+        return myCache.set("test", "This is the value").then(hasSet => {
+            return myCache.clear();
+        }).then(hasBeenRemoved => {
+            expect(hasBeenRemoved).toBe(true);
+            done();
+        });
+    });
+
+    test('setting multiple cache items then clearing' ,(done) => {
+        return myCache.set("test", "This is the value").then(hasSet => {
+            return myCache.set("second", "this is the second value");
+        }).then(hasSet => {
+            return myCache.clear();
+        }).then(hasCleared => {
+            expect(hasCleared).toBe(true);
+            done();
+        })
+    })
+});
