@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "jest __tests__"
+    "test": "jest __tests__ && tslint src/**/*.ts",
+    "lint": "tslint src/**/*.ts"
   },
   "jest": {
     "testEnvironment": "node",
@@ -18,7 +19,8 @@
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.0",
-    "jest": "^24.0.11"
+    "jest": "^24.0.11",
+    "tslint": "^5.15.0"
   },
   "dependencies": {
     "cryptr": "^4.0.2",

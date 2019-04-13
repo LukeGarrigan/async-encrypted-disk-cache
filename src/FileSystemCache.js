@@ -42,7 +42,7 @@ var FileSystemCache = (function () {
     FileSystemCache.prototype.remove = function (id) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var fileToRemove = _this.directoryPath + " \\ " + id;
+            var fileToRemove = _this.directoryPath + "\\" + id;
             fs.unlink(fileToRemove, function (err) {
                 err ? reject(false) : resolve(true);
             });

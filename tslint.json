@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest"],
+  "jsRules": {},
+  "rules": {
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "interface-name": false,
+    "no-console": false,
+    "no-consecutive-blank-lines": false,
+    "whitespace": true,
+    "no-shadowed-variable": false,
+    "no-irregular-whitespace": false,
+    "no-trailing-whitespace": false,
+    "typedef-whitespace": false,
+    "newline-before-return": false,
+    "eofline": false,
+    "arrow-parens": false,
+    "no-duplicate-imports": false
+  },
+  "rulesDirectory": []
+}

@@ -20,20 +20,17 @@ describe('adding a new cache', () => {
             done();
         });
     });
-
 });
 
 
 describe('removing from the cache', () => {
-
     const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
     test('set cache then remove it', (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.remove("test");
         }).then(hasBeenRemoved => {
             expect(hasBeenRemoved).toBe(true);
+            done();
         });
     });
-
-
 });

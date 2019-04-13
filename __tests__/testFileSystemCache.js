@@ -25,6 +25,7 @@ describe('removing from the cache', function () {
             return myCache.remove("test");
         }).then(function (hasBeenRemoved) {
             expect(hasBeenRemoved).toBe(true);
+            done();
         });
     });
 });

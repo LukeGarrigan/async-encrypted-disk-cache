@@ -24,7 +24,7 @@ export class FileSystemCache implements MyCache {
     }
 
     set(id: string, value: string): Promise<boolean> {
-        let encryptedValue = this.encrypt(value);
+        const encryptedValue = this.encrypt(value);
         return new Promise<boolean>((resolve, reject) => {
             return fs.writeFile(this.directoryPath + "\\" + id, encryptedValue, (err) => {
                 if (err) {
@@ -52,7 +52,7 @@ export class FileSystemCache implements MyCache {
 
     remove(id: string): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
-            const fileToRemove = `${this.directoryPath} \\ ${id}`;
+            const fileToRemove = `${this.directoryPath}\\${id}`;
             fs.unlink(fileToRemove, err => {
                 err ? reject(false) : resolve(true);
             });
