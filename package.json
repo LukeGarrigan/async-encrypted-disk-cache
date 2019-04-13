@@ -25,7 +25,6 @@
   "dependencies": {
     "cryptr": "^4.0.2",
     "debug": "~2.6.9",
-    "jsonfile": "latest",
     "typescript": "^3.4.1"
   }
 }

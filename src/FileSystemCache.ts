@@ -1,7 +1,6 @@
 import {MyCache} from "./MyCache";
 import * as fs from "fs";
 import * as os from "os";
-import * as jsonFile from "jsonfile";
 import * as Cryptr from "cryptr";
 
 
@@ -60,11 +59,11 @@ export class FileSystemCache implements MyCache {
     }
 
 
-    private encrypt(value) : string {
+    private encrypt(value): string {
         return this.cryptr.encrypt(JSON.stringify(value));
     }
 
-    private decrypt(value) : string {
+    private decrypt(value): string {
         return JSON.parse(this.cryptr.decrypt(value));
     }
 }
