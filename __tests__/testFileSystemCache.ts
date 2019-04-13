@@ -1,10 +1,9 @@
 import {FileSystemCache} from "../src/FileSystemCache";
 import {MyCache} from "../src/MyCache";
 
-
+const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
 describe('adding a new cache', () => {
 
-    const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
     test('successful', (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             expect(hasSet).toBe(true);
@@ -24,7 +23,6 @@ describe('adding a new cache', () => {
 
 
 describe('removing from the cache', () => {
-    const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
     test('set cache then remove it', (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.remove("test");
