@@ -1,0 +1,29 @@
+{
+  "name": "encrypt-async-cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "jest __tests__"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    }
+  },
+  "author": "lg",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.0",
+    "jest": "^24.0.11"
+  },
+  "dependencies": {
+    "cryptr": "^4.0.2",
+    "debug": "~2.6.9",
+    "jsonfile": "latest",
+    "typescript": "^3.4.1"
+  }
+}
