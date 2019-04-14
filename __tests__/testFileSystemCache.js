@@ -9,6 +9,12 @@ describe('adding a new cache', function () {
             done();
         });
     });
+    test('fail to cache', function (done) {
+        return myCache.set("fdsa./zxc/3242/.~~", "This is the value")["catch"](function (hasSet) {
+            expect(hasSet).toBe(false);
+            done();
+        });
+    });
     test('successfully set and retrieve', function (done) {
         return myCache.set("test", "This is the value").then(function (hasSet) {
             return myCache.get("test");

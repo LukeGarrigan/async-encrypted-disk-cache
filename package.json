@@ -9,6 +9,8 @@
     "lint": "tslint src/**/*.ts"
   },
   "jest": {
+    "verbose": true,
+    "collectCoverage": true,
     "testEnvironment": "node",
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"

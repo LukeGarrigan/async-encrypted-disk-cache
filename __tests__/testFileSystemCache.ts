@@ -11,6 +11,13 @@ describe('adding a new cache', () => {
         });
     });
 
+    test('fail to cache', (done) => {
+        return myCache.set("fdsa./zxc/3242/.~~", "This is the value").catch(hasSet => {
+            expect(hasSet).toBe(false);
+            done();
+        });
+    });
+
     test('successfully set and retrieve', (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.get("test");
