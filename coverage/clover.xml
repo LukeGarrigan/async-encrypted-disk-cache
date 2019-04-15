@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1555304313012" clover="3.2.0">
-  <project timestamp="1555304313012" name="All files">
+<coverage generated="1555304443852" clover="3.2.0">
+  <project timestamp="1555304443852" name="All files">
     <metrics statements="52" coveredstatements="48" conditionals="10" coveredconditionals="6" methods="18" coveredmethods="17" elements="80" coveredelements="71" complexity="0" loc="52" ncloc="52" packages="1" files="1" classes="1"/>
     <file name="FileSystemCache.js" path="/Users/lukegarrigan/Documents/GitHub/async-encrypted-disk-cache/async-encrypted-disk-cache/src/FileSystemCache.js">
       <metrics statements="52" coveredstatements="48" conditionals="10" coveredconditionals="6" methods="18" coveredmethods="17"/>
