@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "jest __tests__ && tslint src/**/*.ts",
-    "lint": "tslint src/**/*.ts"
+    "lint": "tslint src/**/*.ts",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
     "verbose": true,
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.0",
+    "coveralls": "^3.0.3",
     "jest": "^24.0.11",
     "tslint": "^5.15.0"
   },
