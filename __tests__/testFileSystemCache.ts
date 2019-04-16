@@ -38,6 +38,14 @@ describe('removing from the cache', () => {
             done();
         });
     });
+
+
+    test('fail to remove', (done) => {
+        return myCache.remove("test").catch(hasRemoved  => {
+            expect(hasRemoved).toBe(false);
+            done();
+        });
+    });
 });
 
 describe('clearing the entire cache directory', () => {

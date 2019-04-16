@@ -11,7 +11,6 @@ export class FileSystemCache implements MyCache {
 
     readonly cryptr: Cryptr;
     readonly folderName: string;
-    readonly fileName: string;
     readonly directoryPath: string;
 
     constructor(folderName: string, secretKey: string) {
