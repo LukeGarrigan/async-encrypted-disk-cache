@@ -1,4 +1,4 @@
-git<h1 align="center">
+<h1 align="center">
   <br>
   <br>
   async-encrypted-disk-cache
