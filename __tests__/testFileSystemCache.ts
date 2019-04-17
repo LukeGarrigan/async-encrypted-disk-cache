@@ -1,24 +1,25 @@
 import {FileSystemCache} from "../src/FileSystemCache";
 import {MyCache} from "../src/MyCache";
-
+import * as fs from "fs";
+let  os = require("os");
 const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
-describe('adding a new cache', () => {
+describe("adding a new cache", () => {
 
-    test('successful', (done) => {
+    test("successful", (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             expect(hasSet).toBe(true);
             done();
         });
     });
 
-    test('fail to cache', (done) => {
+    test("fail to cache", (done) => {
         return myCache.set("fdsa./zxc/3242/.~~", "This is the value").catch(hasSet => {
             expect(hasSet).toBe(false);
             done();
         });
     });
 
-    test('successfully set and retrieve', (done) => {
+    test("successfully set and retrieve", (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.get("test");
         }).then(value => {
@@ -29,8 +30,8 @@ describe('adding a new cache', () => {
 });
 
 
-describe('removing from the cache', () => {
-    test('set cache then remove it', (done) => {
+describe("removing from the cache", () => {
+    test("set cache then remove it", (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.remove("test");
         }).then(hasBeenRemoved => {
@@ -40,7 +41,7 @@ describe('removing from the cache', () => {
     });
 
 
-    test('fail to remove', (done) => {
+    test("fail to remove", (done) => {
         return myCache.remove("test").catch(hasRemoved  => {
             expect(hasRemoved).toBe(false);
             done();
@@ -48,8 +49,8 @@ describe('removing from the cache', () => {
     });
 });
 
-describe('clearing the entire cache directory', () => {
-    test('set cache then remove directory', (done) => {
+describe("clearing the entire cache directory", () => {
+    test("set cache then remove directory", (done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.clear();
         }).then(hasBeenRemoved => {
@@ -58,7 +59,7 @@ describe('clearing the entire cache directory', () => {
         });
     });
 
-    test('setting multiple cache items then clearing' ,(done) => {
+    test("setting multiple cache items then clearing" ,(done) => {
         return myCache.set("test", "This is the value").then(hasSet => {
             return myCache.set("second", "this is the second value");
         }).then(hasSet => {
@@ -66,6 +67,37 @@ describe('clearing the entire cache directory', () => {
         }).then(hasCleared => {
             expect(hasCleared).toBe(true);
             done();
-        })
-    })
+        });
+    });
+
+});
+
+
+describe("removing the cache folder", () => {
+
+
+    test("remove the cache to create a new one", () => {
+
+        const existingCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
+
+        fs.rmdirSync(os.tmpdir() + "/"+ "test-cache-folder");
+
+        const newCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
+
+
+    });
+
+
+});
+
+
+describe("getting a cache", () => {
+
+    test("fail to get a cache", (done) => {
+
+        myCache.get("I don't exist").catch(err  => {
+            done();
+        });
+    });
+
 });

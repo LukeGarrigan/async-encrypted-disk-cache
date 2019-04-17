@@ -67,6 +67,8 @@ export class FileSystemCache implements MyCache {
                 if (err) {
                     reject(false);
                 }
+
+
                 const removeFilePromises : Array<Promise<boolean>> = [];
 
                 for (const file of files) {
