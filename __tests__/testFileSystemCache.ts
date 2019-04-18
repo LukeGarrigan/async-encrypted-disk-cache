@@ -27,6 +27,24 @@ describe("adding a new cache", () => {
             done();
         });
     });
+
+    test("adding an object to cache", (done) => {
+
+        let myObject = {
+            age: 15,
+            name: "Scott"
+        };
+
+        return myCache.set("my-object-id", JSON.stringify(myObject)).then(successful => {
+            return myCache.get("my-object-id");
+        }).then(retrievedObject => {
+            expect(JSON.parse(retrievedObject)).toEqual(myObject);
+            done();
+        })
+
+
+    });
+
 });
 
 
@@ -70,6 +88,9 @@ describe("clearing the entire cache directory", () => {
         });
     });
 
+
+
+
 });
 
 
@@ -86,6 +107,7 @@ describe("removing the cache folder", () => {
 
 
     });
+
 
 
 });
