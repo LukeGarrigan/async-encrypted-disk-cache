@@ -64,12 +64,9 @@ export class FileSystemCache implements MyCache {
         return new Promise<boolean>((resolve, reject) => {
 
             fs.readdir(this.directoryPath, (err, files) => {
-                if (err  ) {
+                if (err) {
                     reject(false);
                 }
-
-
-
 
                 const removeFilePromises : Array<Promise<boolean>> = [];
 
