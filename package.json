@@ -1,13 +1,13 @@
 {
   "name": "encrypt-async-cache",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "test": "jest ./__tests__ && tslint src/**/*.ts",
+    "test": "jest __tests__/testFileSystemCache.ts && tslint src/**/*.ts",
     "lint": "tslint src/**/*.ts",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
@@ -15,6 +15,7 @@
     "verbose": true,
     "collectCoverage": true,
     "testEnvironment": "node",
+    "transformIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
     }
