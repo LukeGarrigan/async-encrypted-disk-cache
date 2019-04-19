@@ -1,8 +1,9 @@
 {
   "name": "encrypt-async-cache",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "types": "index.ts",
   "scripts": {
     "start": "node src/app.js",
     "test": "jest __tests__ && tslint src/**/*.ts",
