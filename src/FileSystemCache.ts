@@ -1,8 +1,9 @@
-import {EncryptedCache} from "./EncryptedCache";
+
 import * as fs from "fs";
 import * as os from "os";
 import * as Cryptr from "cryptr";
 import * as path from "path";
+import {EncryptedCache} from "./EncryptedCache";
 
 
 export class FileSystemCache implements EncryptedCache {
