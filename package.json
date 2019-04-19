@@ -2,11 +2,12 @@
   "name": "encrypt-async-cache",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
-  "types": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node src/app.js",
-    "test": "jest __tests__ && tslint src/**/*.ts",
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "jest ./__tests__ && tslint src/**/*.ts",
     "lint": "tslint src/**/*.ts",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },

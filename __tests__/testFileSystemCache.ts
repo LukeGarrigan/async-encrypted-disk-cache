@@ -1,4 +1,4 @@
-import {FileSystemCache} from "../src/FileSystemCache";
+import {FileSystemCache} from "../src/index";
 import {EncryptedCache} from "../src/EncryptedCache";
 import * as fs from "fs";
 let  os = require("os");
