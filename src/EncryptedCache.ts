@@ -1,6 +1,6 @@
 
 
-export interface MyCache {
+export interface EncryptedCache {
 
     get(id : string): Promise<string>;
 

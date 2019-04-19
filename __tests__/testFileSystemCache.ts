@@ -1,8 +1,8 @@
-import {FileSystemCache} from "../src/FileSystemCache";
-import {MyCache} from "../src/MyCache";
+import {FileSystemCache} from "../src/index";
+import {EncryptedCache} from "../src/EncryptedCache";
 import * as fs from "fs";
 let  os = require("os");
-const myCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
+const myCache: EncryptedCache = new FileSystemCache("test-cache-folder", "mySecretKey");
 describe("adding a new cache", () => {
 
     test("successful", (done) => {
@@ -99,11 +99,11 @@ describe("removing the cache folder", () => {
 
     test("remove the cache to create a new one", () => {
 
-        const existingCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
+        const existingCache: EncryptedCache = new FileSystemCache("test-cache-folder", "mySecretKey");
 
         fs.rmdirSync(os.tmpdir() + "/"+ "test-cache-folder");
 
-        const newCache: MyCache = new FileSystemCache("test-cache-folder", "mySecretKey");
+        const newCache: EncryptedCache = new FileSystemCache("test-cache-folder", "mySecretKey");
 
 
     });
