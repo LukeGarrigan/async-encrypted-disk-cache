@@ -7,7 +7,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
-    "test": "jest ./__tests__/testFileSystemCache.ts && tslint src/**/*.ts",
+    "test": "jest __tests__ && tslint src/**/*.ts",
     "lint": "tslint src/**/*.ts",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
@@ -15,7 +15,9 @@
     "verbose": true,
     "collectCoverage": true,
     "testEnvironment": "node",
-    "transformIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(?:.+?)/__tests__/"
+    ],
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
     }
