@@ -16,3 +16,45 @@
       <img src='https://coveralls.io/repos/github/LukeGarrigan/async-encrypted-disk-cache/badge.svg?branch=master' alt='Coverage Status'>
   </a>
 </p>
+
+## Install
+
+```bash
+$ npm install encrypt-async-cache
+```
+
+## Usage
+
+```js
+const FileSystemCache = require("encrypt-async-cache").FileSystemCache;
+```
+
+## Example
+
+```js const FileSystemCache = require("encrypt-async-cache").FileSystemCache;
+
+
+const myCache = new FileSystemCache("my-cache", "my-secret-key");
+
+myCache.set("firstCache", "This is the data").then(success => {
+  success === true;
+  // item is put into cache
+});
+
+
+myCache.get("firstCache").then(cachedItem => {
+  cachedItem === "This is the data";
+  // item is retrieved from the cache
+});
+
+
+myCache.remove("firstCache").then(hasRemoved => {
+  hasRemoved === true;
+  // item is removed from the cache directory
+});
+
+myCache.clear().then(hasCleared => {
+  hasCleared === true;
+  // your cache directory has been cleared
+});
+```
