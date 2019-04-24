@@ -18,7 +18,7 @@
 </p>
 
 <a href="https://twitter.com/codeheir">
-    <img src="https://codeheir.files.wordpress.com/2019/04/untitled-1.png?w=400&h=400&crop=1" alt="codeheir logo" title="Codeheir" align="right" height="130" />
+    <img src="https://codeheir.files.wordpress.com/2019/04/untitled-1.png?w=400&h=400&crop=1" alt="codeheir logo" title="Codeheir" align="right" height="100" />
 </a>
 
 
