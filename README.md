@@ -23,7 +23,7 @@
 
 
 
-A module to add/retrieve encrypted data to/from your local temp folder. More information on the inspiration of this module can be found <a href="https://codeheir.com/2019/04/19/creating-a-node-module-with-typescript/">here</a>.
+A module to add/retrieve encrypted data to/from your local temp folder. More information on the inspiration of this module can be found <a href="https://codeheir.com/2019/04/19/creating-a-node-module-with-typescript/">here</a>. There are plans to remove the unnecessary dependencies in the near future.
 
 ## Install
 
