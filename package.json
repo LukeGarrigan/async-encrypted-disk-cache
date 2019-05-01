@@ -1,9 +1,9 @@
 {
   "name": "encrypt-async-cache",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "cryptr": "^4.0.2",
-    "debug": "~2.6.9",
     "typescript": "^3.4.1"
   }
 }
