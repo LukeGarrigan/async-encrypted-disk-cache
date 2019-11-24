@@ -8,8 +8,6 @@ import {EncryptedCache} from "./EncryptedCache";
 
 export class FileSystemCache implements EncryptedCache {
 
-
-
     readonly cryptr: Cryptr;
     readonly folderName: string;
     readonly directoryPath: string;
