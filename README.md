@@ -66,3 +66,6 @@ myCache.clear().then(hasCleared => {
   // your cache directory has been cleared
 });
 ```
+
+# todo
+Issue with set-value, github has raised as an issue
